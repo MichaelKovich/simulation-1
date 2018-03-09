@@ -1,6 +1,6 @@
 import React from 'react';
 import routes from './subcomponents/routes';
-import './styles/App.css';
+import './styles/ShelfList.css';
 
 function app() {
   return <div>{routes}</div>;

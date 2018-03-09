@@ -1,0 +1,139 @@
+.bin-logo {
+  height: 50px;
+  padding-top: 16%;
+}
+
+.bin-logo-box {
+  width: 10%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ab2a19;
+}
+
+.bin-header {
+  color: white;
+  font-weight: 700;
+  font-size: 30px;
+  background-color: #ed6b5a;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: stretch;
+}
+
+.bin-shelf-title {
+  width: 20%;
+  height: 100%;
+  background-color: #d34735;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: 1%;
+  box-sizing: border-box;
+}
+
+.bin-bin-title {
+  margin-left: 1%;
+}
+
+.bin-holder {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+  height: 100%;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.bin-column-one {
+  width: 10%;
+}
+
+.bin-column-two {
+  width: 12%;
+}
+
+.bin-column-three {
+  width: 526px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.element-one {
+  font-weight: bold;
+  margin-left: 1%;
+  margin-bottom: 0.75%;
+}
+
+.name {
+  border: 1px solid #ab2a19;
+  border-radius: 3px;
+  padding: 12px;
+  min-width: 500px;
+  width: auto;
+  font-size: 30px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.element-three {
+  font-weight: bold;
+  margin-left: 1%;
+  margin-bottom: 0.75%;
+}
+
+.price {
+  border: 1px solid #ab2a19;
+  border-radius: 3px;
+  padding: 12px;
+  min-width: 500px;
+  width: auto;
+  font-size: 30px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.form-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: stretch;
+}
+
+.edit-button {
+  height: auto;
+  font-size: 30px;
+  border: none;
+  width: 200px;
+  border-radius: 3px;
+  padding: 10px 0;
+  cursor: pointer;
+  outline: none;
+  font-weight: bold;
+}
+
+.delete-button {
+  height: auto;
+  font-size: 30px;
+  border: none;
+  width: 200px;
+  border-radius: 3px;
+  padding: 10px 0;
+  cursor: pointer;
+  outline: none;
+  font-weight: bold;
+}

@@ -1,0 +1,92 @@
+.shelf-logo {
+  height: 50px;
+}
+
+.shelf-logo-box {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ab2a19;
+}
+
+.shelf-header {
+  color: white;
+  font-weight: 700;
+  font-size: 30px;
+  background-color: #d34735;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: stretch;
+}
+
+.shelf-title {
+  margin-left: 1%;
+}
+
+.shelf-main-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: stretch;
+}
+
+.shelf-left-column {
+  height: 100%;
+  width: 21%;
+}
+
+.shelf-right-column {
+  height: 100%;
+  width: 79%;
+  text-align: center;
+}
+
+.shelf-right-column p {
+  color: white;
+  font-weight: 100;
+  font-size: 30px;
+}
+
+.shelf-button {
+  background-color: #ed6b5a;
+}
+
+.shelf {
+  color: white;
+  font-weight: 700;
+  font-size: 30px;
+  background-color: #d34735;
+  width: 500px;
+  height: 60px;
+  margin-top: 20px;
+  border-radius: 3px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.bin-button {
+  color: white;
+  font-weight: 700;
+  font-size: 30px;
+  background-color: #ed6b5a;
+  width: 500px;
+  height: 60px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.bin-button p {
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  margin-top: 4%;
+  padding-top: 2%;
+}

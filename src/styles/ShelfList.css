@@ -35,11 +35,11 @@ a {
   background-color: #ab2a19;
   height: 60px;
   padding: 20px;
-  color: white;
 }
 
 .header-title {
   margin-left: 1.6%;
+  margin-bottom: 1.2%;
 }
 
 .shelf {

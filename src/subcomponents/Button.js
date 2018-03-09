@@ -1,11 +1,7 @@
 import React from 'react';
 
 function button(props) {
-  return (
-    <div className="shelf">
-      <p>{props.title}</p>
-    </div>
-  );
+  return <p>{props.title}</p>;
 }
 
 export default button;
