@@ -1,21 +1,20 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+import Header from './components/Header';
+import Button from './components/Button';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
+function app() {
+  return (
+    <div>
+      <Header />
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Button title="Shelf A" />
+        <Button title="Shelf B" />
+        <Button title="Shelf C" />
+        <Button title="Shelf D" />
       </div>
-    );
-  }
+    </div>
+  );
 }
 
-export default App;
+export default app;
