@@ -6,7 +6,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 // Import Controller
-// REQUIRE CONTROLLER HERE
+const controller = require('./controller');
 
 // Instantiate Express
 const app = express();
@@ -26,10 +26,11 @@ massive(process.env.CONNECTION_STRING)
   .catch(err => console.log(err));
 
 // ROUTING HERE
-// app.get
-// app.post
-// app.put
-// app.delete
+app.get('/api/getProducts/:id', controller.getProducts);
+app.get('/api/getProduct/:shelf/:bin', controller.getProduct);
+// app.post('/api/post', cb);
+// app.update('/api/update', cb);
+// app.delete('/api/delete', cb);
 
 // LISTENING HERE
 app.listen(process.env.PORT || 3001, () => console.log('Listening!'));

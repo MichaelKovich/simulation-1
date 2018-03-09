@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 import BinHeader from '../subcomponents/BinHeader';
 import Button from '../subcomponents/Button';
 import '../styles/Bin.css';
@@ -9,8 +10,19 @@ class Bin extends Component {
     super(props);
 
     this.state = {
-      contents: 10,
+      name: 'Name Here',
+      price: 0.0,
     };
+  }
+
+  componentDidMount() {
+    const s = this.props.match.params.shelfbin[0];
+    const b = this.props.match.params.shelfbin[1];
+
+    axios
+      .get(`http://localhost:3001/api/getProduct/${s}/${b}`)
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
   }
 
   render() {
@@ -28,11 +40,11 @@ class Bin extends Component {
           <div className="bin-column-three">
             <div className="element-one">Name</div>
             <div className="element-two">
-              <input className="name" placeholder="Dynamic Placeholder" />
+              <input className="name" placeholder={this.state.name} />
             </div>
             <div className="element-three">Price</div>
             <div className="element-four">
-              <input className="price" placeholder="Dynamic Placeholder" />
+              <input className="price" placeholder={this.state.price} />
             </div>
             <div className="form-buttons">
               <div className="edit">

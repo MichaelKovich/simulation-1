@@ -1,0 +1,1 @@
+SELECT FROM products WHERE shelfid = $1 AND binid = $2;

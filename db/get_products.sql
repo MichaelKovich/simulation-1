@@ -1,0 +1,1 @@
+SELECT * from products WHERE shelfid = $1;
