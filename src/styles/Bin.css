@@ -63,6 +63,7 @@
 
 .bin-column-three {
   width: 526px;
+  margin-left: 3%;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;

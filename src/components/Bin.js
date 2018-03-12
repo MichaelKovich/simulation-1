@@ -10,48 +10,100 @@ class Bin extends Component {
     super(props);
 
     this.state = {
+      id: 0,
       name: 'Name Here',
       price: 0.0,
+      newName: '',
+      newPrice: '',
     };
+
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handlePriceChange = this.handlePriceChange.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
+    this.updateItem = this.updateItem.bind(this);
   }
 
   componentDidMount() {
-    const s = this.props.match.params.shelfbin[0];
-    const b = this.props.match.params.shelfbin[1];
+    const {shelfbin} = this.props.match.params;
+
+    let s,
+      b,
+      a;
+
+    s = shelfbin[0];
+    b = shelfbin[1];
 
     axios
-      .get(`http://localhost:3001/api/getProduct/${s}/${b}`)
-      .then(res => console.log(res))
+      .get(`http://localhost:3001/api/getProducts/${s}`)
+      .then((res) => {
+        a = res.data;
+        const f = [];
+        a.forEach((element) => {
+          if (element.binid === parseInt(b, 10)) {
+            f.push(element);
+          }
+        });
+        console.log(f);
+        this.setState({id: f[0].id, name: f[0].productname, price: f[0].price});
+      })
       .catch(err => console.log(err));
   }
 
+  handleNameChange(value) {
+    this.setState({newName: value});
+  }
+
+  handlePriceChange(value) {
+    this.setState({newPrice: value});
+  }
+
+  updateItem() {
+    const {newName, newPrice} = this.state;
+    x;
+  }
+
+  deleteItem() {
+    const {newName, newPrice} = this.state;
+    x;
+  }
+
   render() {
+    const {shelfbin} = this.props.match.params;
     return (
       <div className="bin-main">
-        <BinHeader
-          shelfid={this.props.match.params.shelfbin[0]}
-          binid={this.props.match.params.shelfbin[1]}
-        />
+        <BinHeader shelfid={shelfbin[0]} binid={shelfbin[1]} />
         <div className="bin-holder">
           <div className="bin-column-one" />
           <div className="bin-column-two">
-            <img src="http://lorempixel.com/200/200/business/" />
+            <img src="https://picsum.photos/200/200?image=0" />
           </div>
           <div className="bin-column-three">
             <div className="element-one">Name</div>
             <div className="element-two">
-              <input className="name" placeholder={this.state.name} />
+              <input
+                className="name"
+                placeholder={this.state.name}
+                onChange={event => this.handleNameChange(event.target.value)}
+              />
             </div>
             <div className="element-three">Price</div>
             <div className="element-four">
-              <input className="price" placeholder={this.state.price} />
+              <input
+                className="price"
+                placeholder={this.state.price}
+                onChange={event => this.handlePriceChange(event.target.value)}
+              />
             </div>
             <div className="form-buttons">
               <div className="edit">
-                <button className="edit-button">Edit</button>
+                <button className="edit-button" onClick={this.updateItem()}>
+                  Edit
+                </button>
               </div>
               <div className="delete">
-                <button className="delete-button">Delete</button>
+                <button className="delete-button" onClick={this.deleteItem()}>
+                  Delete
+                </button>
               </div>
             </div>
           </div>

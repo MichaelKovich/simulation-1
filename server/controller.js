@@ -14,8 +14,9 @@ module.exports = {
     const db = req.app.get('db');
     db
       .get_product([req.params.shelf, req.params.bin])
-      .then((product) => {
-        res.status(200).json(product);
+      .then((products) => {
+        console.log(res);
+        res.status(200).json(products);
       })
       .catch((err) => {
         console.log(err);
