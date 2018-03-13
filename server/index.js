@@ -27,10 +27,9 @@ massive(process.env.CONNECTION_STRING)
 
 // ROUTING HERE
 app.get('/api/getProducts/:id', controller.getProducts);
-app.get('/api/getProduct/:shelf/:bin', controller.getProduct); // delete this, delete controller, and delete sql
-// app.post('/api/post', cb); // For the create page (req.body, incl. shelf and bin data from props)
-// app.put('/api/update', cb); // For bin > update (req.body)
-// app.delete('/api/delete/:id', cb); // For bin > delete (req.params.id)
+app.put('/api/update', controller.updateProduct);
+app.delete('/api/delete', controller.deleteProduct);
+app.post('/api/create', controller.createProduct);
 
 // LISTENING HERE
 app.listen(process.env.PORT || 3001, () => console.log('Listening!'));

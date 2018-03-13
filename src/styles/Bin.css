@@ -138,3 +138,17 @@
   outline: none;
   font-weight: bold;
 }
+
+.create-button {
+  height: auto;
+  font-size: 30px;
+  border: none;
+  min-width: 500px;
+  width: auto;
+  border-radius: 3px;
+  padding: 10px 0;
+  cursor: pointer;
+  outline: none;
+  font-weight: bold;
+  background-color: #40f99b;
+}

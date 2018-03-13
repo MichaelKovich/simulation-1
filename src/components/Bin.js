@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import axios from 'axios';
 import BinHeader from '../subcomponents/BinHeader';
 import Button from '../subcomponents/Button';
@@ -43,10 +43,9 @@ class Bin extends Component {
             f.push(element);
           }
         });
-        console.log(f);
         this.setState({id: f[0].id, name: f[0].productname, price: f[0].price});
       })
-      .catch(err => console.log(err));
+      .catch(err => this.props.history.push(`/create/${s}${b}`));
   }
 
   handleNameChange(value) {
@@ -58,13 +57,33 @@ class Bin extends Component {
   }
 
   updateItem() {
+    const {shelfbin} = this.props.match.params;
+    const shelfid = shelfbin[0];
+    const binid = shelfbin[1];
+
     const {newName, newPrice} = this.state;
-    x;
+    axios
+      .put('http://localhost:3001/api/update', {
+        shelfid,
+        binid,
+        name: newName,
+        price: newPrice,
+      })
+      .then()
+      .catch(err => console.log(err));
   }
 
   deleteItem() {
-    const {newName, newPrice} = this.state;
-    x;
+    const {shelfbin} = this.props.match.params;
+    const shelfid = shelfbin[0];
+    const binid = shelfbin[1];
+
+    axios
+      .delete('http://localhost:3001/api/delete', {params: {shelfid, binid}})
+      .then((req, res) => {
+        this.props.history.push('/bins/A');
+      })
+      .catch(err => console.log(err));
   }
 
   render() {
@@ -96,12 +115,12 @@ class Bin extends Component {
             </div>
             <div className="form-buttons">
               <div className="edit">
-                <button className="edit-button" onClick={this.updateItem()}>
+                <button className="edit-button" onClick={this.updateItem}>
                   Edit
                 </button>
               </div>
               <div className="delete">
-                <button className="delete-button" onClick={this.deleteItem()}>
+                <button className="delete-button" onClick={this.deleteItem}>
                   Delete
                 </button>
               </div>

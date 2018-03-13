@@ -10,13 +10,38 @@ module.exports = {
       });
   },
 
-  getProduct(req, res) {
+  updateProduct(req, res) {
     const db = req.app.get('db');
     db
-      .get_product([req.params.shelf, req.params.bin])
-      .then((products) => {
-        console.log(res);
-        res.status(200).json(products);
+      .update_product([req.body.shelfid, req.body.binid, req.body.name, req.body.price])
+      .then(() => {
+        res.status(200).json();
+      })
+      .catch((err) => {
+        console.log(err);
+        return res.status(500).json();
+      });
+  },
+
+  deleteProduct(req, res) {
+    const db = req.app.get('db');
+    db
+      .delete_product([req.query.shelfid, req.query.binid])
+      .then(() => {
+        res.status(200).json();
+      })
+      .catch((err) => {
+        console.log(err);
+        return res.status(500).json();
+      });
+  },
+
+  createProduct(req, res) {
+    const db = req.app.get('db');
+    db
+      .create_product([req.body.shelfid, req.body.binid, req.body.name, req.body.price])
+      .then(() => {
+        res.status(200).json();
       })
       .catch((err) => {
         console.log(err);
